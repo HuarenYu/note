@@ -5,7 +5,7 @@ conn = sqlite3.connect('info.db')
 c = conn.cursor()
 print "Opened database successfully";
 
-cursor = c.execute("SELECT ID, TITLE, LINK  FROM THREAD WHERE TITLE LIKE '%孕%' LIMIT 10")
+cursor = c.execute("SELECT ID, TITLE, LINK  FROM THREAD WHERE TITLE LIKE '%%' LIMIT 10")
 for row in cursor:
    print "ID = ", row[0]
    print "NAME = ", row[1]
