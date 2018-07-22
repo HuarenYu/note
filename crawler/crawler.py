@@ -18,7 +18,7 @@ class Crawler(object):
 
     def get_dict(self):
         dc = {}
-        for page in range(1, 100):
+        for page in range(1, 200):
             url = self.start_url.format(page)
             soup = self.spider(url)
             h3 = soup.find_all('h3')
