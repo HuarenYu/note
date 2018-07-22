@@ -3,7 +3,7 @@ import requests
 import sqlite3
 from bs4 import BeautifulSoup
 
-domain_name = 'http://cl.m7y.xyz/'
+domain_name = 'https://c6.3vc.info/'
 
 class Crawler(object):
     def __init__(self, start_url):
