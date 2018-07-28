@@ -37,13 +37,15 @@ if __name__ == '__main__':
     #fo = open('data.txt', 'a+')
     conn = sqlite3.connect('info.db')
     c = conn.cursor()
-    print "Opened database successfully";
+    print "Opened database successfully"
+    c.execute("DELETE FROM THREAD")
+    print "clear thread table"
     for (n, k) in dc.items():
         #fo.write(n.encode('utf-8').strip() + '\n')
         #fo.write(k.encode('utf-8').strip() + '\n')
-        c.execute("INSERT INTO THREAD (TITLE,LINK) VALUES ('{}','{}')".format(n.encode('utf-8').strip(), k.encode('utf-8').strip()));
+        c.execute("INSERT INTO THREAD (TITLE,LINK) VALUES ('{}','{}')".format(n.encode('utf-8').strip(), k.encode('utf-8').strip()))
         print 'insert a thread...'
     #fo.close()
     conn.commit()
-    print "Records created successfully";
+    print "Records created successfully"
     conn.close()
