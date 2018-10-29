@@ -1,0 +1,19 @@
+{
+  "name": "babel7",
+  "version": "1.0.0",
+  "description": "babel7 test",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.0"
+  },
+  "scripts": {
+    "start": "babel-node ./src/app.js",
+    "dist": "babel -d ./dist ./src"
+  },
+  "author": "",
+  "license": "ISC"
+}
