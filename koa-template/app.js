@@ -42,22 +42,11 @@ router.get('/', async (ctx, next) => {
     posts: posts
   });
 });
+
 app
   .use(router.routes())
   .use(router.allowedMethods());
-app.use(async (ctx, next) => {
-  console.log('-----router2 before-------')
-  next()
-  console.log('-----router2 after-------')
-})
 
-const router2 = new Router()
-router2.get('/home', (ctx, next) => {
-  ctx.body = 'home'
-})
-app
-  .use(router2.routes())
-  .use(router2.allowedMethods());
 const port = 7001
 app.listen(port, () => {
   console.log(`✅  The server is running at http://localhost:${port}/`)
