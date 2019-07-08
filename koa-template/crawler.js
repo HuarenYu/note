@@ -1,10 +1,10 @@
 const Crawler = require('crawler');
 const { domain, ua } = require('./constants');
 var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database('test.db');
+var db = new sqlite3.Database('test1.db');
 
 const c = new Crawler({
-    rateLimit: 3000,
+    rateLimit: 5000,
     maxConnections: 1,
     userAgent: ua,
     forceUTF8: true,
@@ -13,6 +13,7 @@ const c = new Crawler({
         if(err){
             console.error(err);
         }else{
+            console.log(new Date().toLocaleString(), res.options.uri)
             var $ = res.$;
             $('h3').each((index, el) => {
                 const $this = $(el)
@@ -24,11 +25,10 @@ const c = new Crawler({
                         console.error(err)
                         return
                     }
-                    console.log('insert into:', link)
                 })
             })
         }
         done();
     }
 });
-c.queue([...Array(99).keys()].map(n => n + 1).map(n => `${domain}${n}`));
+c.queue([...Array(200).keys()].map(n => n + 1).map(n => `${domain}${n}`));
